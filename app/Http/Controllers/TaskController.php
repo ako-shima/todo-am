@@ -22,14 +22,14 @@ use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
-    public function index()
+    function index()
     {
-        return view('tasks.index');
-        // $tasks = Task::where('user_id', Auth::id())->get();
-        // return view('tasks.index', compact('tasks'));
+        $tasks = Task::all();
+        // dd($tasks);
+        return view('tasks.index', ['tasks' => $tasks]);
     }
 
-    public function create()
+    function create()
     {
 
         return view('tasks.create');
@@ -51,10 +51,40 @@ class TaskController extends Controller
             'user_id' => Auth::id(),
         ]);
 
+    // 編集フォームの表示
+    function edit($id)
+    {
+        $task = Task::find($id);
+        return view('tasks.edit', compact('task'));
+    }
+
+    // 更新処理
+    function update(Request $request, $id)
+    {
+        $task = Task::find($id);
+
+        $task -> title = $request -> title;
+        $task -> body = $request -> body;
+        $task -> save();
+
+        return view('tasks.show', ['task'=>$task]);
+        }
+
+    // 削除
+
+        function destroy($id)
+        {
+            $task = Task::find($id);
+
+            $task -> delete();
+
+            return redirect()->route('tasks.index');
+        }
+
 
         return redirect()->route('tasks.index');
     }
 
-    // 他のメソッドも同様に定義します。
+    
 }
 
