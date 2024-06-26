@@ -24,8 +24,9 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::where('user_id', Auth::id())->get();
-        return view('tasks.index', compact('tasks'));
+        return view('tasks.index');
+        // $tasks = Task::where('user_id', Auth::id())->get();
+        // return view('tasks.index', compact('tasks'));
     }
 
     public function create()
@@ -49,6 +50,7 @@ class TaskController extends Controller
             'image_at' => $request->image_at,
             'user_id' => Auth::id(),
         ]);
+
 
         return redirect()->route('tasks.index');
     }
