@@ -6,22 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
- /**
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title', 30);
-            $table->string('contents', 140);
-            $table->text('image_at')->nullable();
-            $table->bigInteger('user_id')->unsigned();
+            $table->string('name', 30);
+            $table->string('email', 30)->unique();
+            $table->string('password', 90);
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('users');
     }
 };
