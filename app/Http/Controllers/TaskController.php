@@ -10,6 +10,6 @@ class TaskController extends Controller
     function index()
     {
         $tasks = Task::all();
-        return view('tasks.index', ['task' => $tasks]);
+        return view('tasks.index', ['tasks' => $tasks]);
     }
 }
