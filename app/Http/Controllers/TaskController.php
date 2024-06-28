@@ -44,14 +44,7 @@ class TaskController extends Controller
         $task = Task::find($id);
         return view('tasks.show',['task'=>$task]);
     }
-
-    // 編集フォームの表示
-    function edit($id)
-    {
-        $task = Task::find($id);
-        return view('tasks.edit', ['task'=>$task]);
-    }
-
+  
     // 更新処理
     function update(Request $request, $id)
     {
@@ -63,10 +56,17 @@ class TaskController extends Controller
 
         return view('tasks.show', ['task'=>$task]);
         }
+        return redirect()->route('tasks.index');
+    }
 
-    // 削除
+    // 編集フォームの表示
+    public function edit($id)
+    {
+        $task = Task::find($id);
+        return view('tasks.edit', compact('task'));
+    }
 
-    function destroy($id)
+    public function destroy($id)
     {
         $task = Task::find($id);
 
