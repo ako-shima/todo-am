@@ -51,13 +51,6 @@ class TaskController extends Controller
             'user_id' => Auth::id(),
         ]);
 
-    // 編集フォームの表示
-    function edit($id)
-    {
-        $task = Task::find($id);
-        return view('tasks.edit', compact('task'));
-    }
-
     // 更新処理
     function update(Request $request, $id)
     {
@@ -69,18 +62,21 @@ class TaskController extends Controller
 
         return view('tasks.show', ['task'=>$task]);
         }
+        return redirect()->route('tasks.index');
+    }
 
-    // 削除
+    // 編集フォームの表示
+    public function edit($id)
+    {
+        $task = Task::find($id);
+        return view('tasks.edit', compact('task'));
+    }
 
-        function destroy($id)
-        {
-            $task = Task::find($id);
+    public function destroy($id)
+    {
+        $task = Task::find($id);
 
-            $task -> delete();
-
-            return redirect()->route('tasks.index');
-        }
-
+        $task -> delete();
 
         return redirect()->route('tasks.index');
     }
