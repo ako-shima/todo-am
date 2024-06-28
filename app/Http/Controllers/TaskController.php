@@ -1,19 +1,5 @@
 <?php
 
-// namespace App\Http\Controllers;
-
-// use Illuminate\Http\Request;
-// use App\Models\Task;
-
-// class TaskController extends Controller
-// {
-//     function index()
-//     {
-//         $tasks = Task::all();
-//         return view('tasks.index', ['task' => $tasks]);
-//     }
-// }
-
 namespace App\Http\Controllers;
 
 use App\Models\Task;
@@ -22,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
+    //メソッド = 技
+    //function index()←これが一つのメソッド。indexメソッドという
     function index()
     {
         $tasks = Task::all();
@@ -31,9 +19,7 @@ class TaskController extends Controller
 
     function create()
     {
-
         return view('tasks.create');
-
     }
 
     public function store(Request $request)
@@ -50,7 +36,15 @@ class TaskController extends Controller
             'image_at' => $request->image_at,
             'user_id' => Auth::id(),
         ]);
+    }
 
+    function show($id)
+    {
+        // dd($id);
+        $task = Task::find($id);
+        return view('tasks.show',['task'=>$task]);
+    }
+  
     // 更新処理
     function update(Request $request, $id)
     {
@@ -80,7 +74,4 @@ class TaskController extends Controller
 
         return redirect()->route('tasks.index');
     }
-
-    
 }
-
