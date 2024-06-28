@@ -35,3 +35,4 @@ Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edi
 Route::put('/tasks/{id}', [TaskController::class, 'update'])->name('tasks.update');
 // Route::get('/tasks/{id}', [TaskController::class, 'show'])->name('tasks.show'); // これがエラーの原因
 Route::delete('/tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+
