@@ -56,8 +56,6 @@ class TaskController extends Controller
 
         return view('tasks.show', ['task'=>$task]);
         }
-        return redirect()->route('tasks.index');
-    }
 
     // 編集フォームの表示
     public function edit($id)
