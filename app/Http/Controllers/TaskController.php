@@ -32,7 +32,7 @@ class TaskController extends Controller
 
         Task::create([
             'title' => $request->title,
-            'contents' => $request->contents,
+            'body' => $request->body,
             'image_at' => $request->image_at,
             'user_id' => Auth::id(),
         ]);
@@ -59,7 +59,7 @@ class TaskController extends Controller
         $task = Task::find($id);
 
         $task -> title = $request -> title;
-        $task -> contents = $request -> contents;
+        $task -> body = $request -> body;
         $task -> save();
 
         return view('tasks.show', ['task'=>$task]);

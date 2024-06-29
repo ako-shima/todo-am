@@ -16,8 +16,8 @@
             </div>
             
             <div class="form-group">
-                <label for="contents">Content</label>
-                <textarea name="contents" id="contents" class="form-control"></textarea>
+                <label for="body">Content</label>
+                <textarea name="body" id="body" class="form-control"></textarea>
             </div>
                
             <div class="form-group">
