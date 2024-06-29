@@ -24,18 +24,16 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string|max:30',
-            'contents' => 'required|string|max:140',
-            'image_at' => 'nullable|string',
-        ]);
-
-        Task::create([
-            'title' => $request->title,
-            'contents' => $request->contents,
-            'image_at' => $request->image_at,
-            'user_id' => Auth::id(),
-        ]);
+        $task = new Task;
+       
+        $task->title = $request->title;
+        $task->contents = $request->contents;
+        $task->image_at = $request->image_at;
+        
+        $task->user_id = Auth::id();
+        $task->save();
+    
+        return redirect()->route('tasks.index');
     }
 
     function show($id)
@@ -51,7 +49,7 @@ class TaskController extends Controller
         $task = Task::find($id);
 
         $task -> title = $request -> title;
-        $task -> body = $request -> body;
+        $task -> contents = $request -> contents;
         $task -> save();
 
         return view('tasks.show', ['task'=>$task]);

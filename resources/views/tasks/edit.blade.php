@@ -16,8 +16,8 @@
             </div>
             
             <div class="form-group">
-                <label for="body">Body</label>
-                <textarea name="body" id="body" class="form-control">{{ old('body', $task->body) }}</textarea>
+                <label for="contents">Contents</label>
+                <textarea name="contents" id="contents" class="form-control">{{ old('contents', $task->contents) }}</textarea>
             </div>
             
             <button type="submit" class="btn btn-primary">Update Task</button>
