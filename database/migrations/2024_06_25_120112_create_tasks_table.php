@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title', 30);
-            $table->string('contents', 140);
+            $table->string('body', 140);
             $table->text('image_at')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();

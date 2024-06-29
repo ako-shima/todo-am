@@ -26,7 +26,7 @@ class TaskController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:30',
-            'contents' => 'required|string|max:140',
+            'body' => 'required|string|max:140',
             'image_at' => 'nullable|string',
         ]);
 
@@ -48,6 +48,12 @@ class TaskController extends Controller
     // 更新処理
     function update(Request $request, $id)
     {
+        $request->validate([
+            'title' => 'required|string|max:30',
+            'body' => 'required|string|max:140',
+            // 'image_at' => 'nullable|string',
+        ]);
+
         $task = Task::find($id);
 
         $task -> title = $request -> title;

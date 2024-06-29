@@ -2,6 +2,14 @@
 
 @extends('layouts.app')
 
+<style>
+    .bg-pink {
+        --tw-bg-opacity: 1;
+        background-color: rgb(249 168 212 / var(--tw-bg-opacity));
+        border: none
+    }
+</style>
+
 @section('content')
     <div class="container">
         <h1>Edit Task</h1>
@@ -20,7 +28,23 @@
                 <textarea name="body" id="body" class="form-control">{{ old('body', $task->body) }}</textarea>
             </div>
             
-            <button type="submit" class="p-3 rounded bg-pink-300">Update Task</button>
+            {{-- <button type="submit" class="p-3 rounded bg-pink-300">Update Task</button> --}}
+            <button type="submit" class="p-3 rounded bg-pink" onclick='countCharacters()'>
+                Update Task
+            </button>
         </form>
     </div>
+
+    <script>
+        function countCharacters() {
+            var inputTitle = document.getElementById('title').value.length;
+            var inputBody = document.getElementById('body').value.length;
+            if(inputBody > 140) {
+                alert("Body maximum letters exceeded from limit 140")
+            }
+            if(inputTitle > 30) {
+                alert("Title maximum letters exceeded from limit 30")
+            }
+        }
+    </script>
 @endsection
