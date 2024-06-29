@@ -15,12 +15,12 @@
                 <input type="text" name="title" id="title" class="form-control" value="{{ old('title', $task->title) }}" required>
             </div>
             
-            <div class="form-group">
+            <div class="form-group pb-3" >
                 <label for="body">Body</label>
                 <textarea name="body" id="body" class="form-control">{{ old('body', $task->body) }}</textarea>
             </div>
             
-            <button type="submit" class="btn btn-primary">Update Task</button>
+            <button type="submit" class="p-3 rounded bg-pink-300">Update Task</button>
         </form>
     </div>
 @endsection
