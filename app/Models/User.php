@@ -21,8 +21,4 @@ class User extends Authenticatable
         return $this->hasMany(Task::class);
     }
 
-
 }
-
-
-

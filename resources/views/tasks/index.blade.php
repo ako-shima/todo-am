@@ -23,11 +23,26 @@
             <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
               <h2 class="text-gray-900 text-lg title-font font-medium mb-2">{{ $task->title }}</h2>
               <p class="leading-relaxed text-base">{{ $task->body }}</p>
-              <a class="mt-3 text-pink-500 inline-flex items-center">Learn More
+              <a href="{{ route('tasks.show', $task) }}" class="mt-3 text-pink-500 inline-flex items-center">
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
               </a>
+            </div>
+
+            <div class="comments">
+              <div class="comment-lists">
+                @foreach($task->comments as $comment)
+                  <div class="comment flex">
+                    <div>{{ $comment->content }}</div>
+                  </div>
+                @endforeach
+              </div>
+              <form action="">
+                <textarea name="" id="" cols="30" rows="3" placeholder="Comment here . . ."></textarea>
+                <input type="submit" value="Comment" class="p-3 rounded bg-blue-300">
+              </form>
+
             </div>
             <div class="flex gap-2">
               <a href="{{ route('tasks.edit', $task->id) }}" class="p-3 rounded bg-pink-300">edit</a>
@@ -61,17 +76,17 @@
         </div>
         @endif --}}
       @endforeach
-      <button class="flex mx-auto mt-20 text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">Button</button>
+      <button class="flex mx-auto mt-20 text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">New Post</button>
     </div>
   </section>
 
-    <footer class="bg-slate-800">
+    {{-- <footer class="bg-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="py-4 text-center">
             <p class="text-white text-sm">Todo Application</p>
         </div>
     </div>
-    </footer>
+    </footer> --}}
 </body>
 
 </html>
