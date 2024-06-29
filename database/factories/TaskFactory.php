@@ -26,7 +26,7 @@ class TaskFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(3), // Generate a shorter sentence
-            'contents' => $this->faker->paragraph,
+            'body' => $this->faker->paragraph,
             'image_at' => $this->faker->imageUrl(),
             'user_id' => \App\Models\User::factory(),
         ];
