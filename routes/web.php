@@ -15,8 +15,12 @@ use App\Http\Controllers\TaskController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('top');
 });
 
 Route::middleware(['auth'])->group(function () {
