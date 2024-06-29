@@ -24,7 +24,14 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('tasks', TaskController::class);
+   Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+   Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
+
+Route::put('/tasks/{id}', [TaskController::class, 'update'])->name('tasks.update');
+
+Route::get('/tasks/{id}', [TaskController::class, 'show'])->name('tasks.show');
+
+
 });
 
 Auth::routes();
@@ -34,14 +41,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
 
-Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
 
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
 
-Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
-
-Route::put('/tasks/{id}', [TaskController::class, 'update'])->name('tasks.update');
-
-// Route::get('/tasks/{id}', [TaskController::class, 'show'])->name('tasks.show'); // これがエラーの原因
 
 Route::delete('/tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');

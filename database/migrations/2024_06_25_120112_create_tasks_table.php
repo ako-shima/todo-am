@@ -12,6 +12,7 @@ return new class extends Migration
      * @return void
      */
     public function up()
+
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
+
 
     /**
      * Reverse the migrations.

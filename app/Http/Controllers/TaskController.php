@@ -36,6 +36,8 @@ class TaskController extends Controller
             'image_at' => $request->image_at,
             'user_id' => Auth::id(),
         ]);
+      
+        return redirect()->route('tasks.index');
     }
 
     function show($id)
@@ -57,7 +59,7 @@ class TaskController extends Controller
         $task = Task::find($id);
 
         $task -> title = $request -> title;
-        $task -> body = $request -> body;
+        $task -> contents = $request -> contents;
         $task -> save();
 
         return view('tasks.show', ['task'=>$task]);
