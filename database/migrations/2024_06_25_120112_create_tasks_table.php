@@ -12,16 +12,20 @@ return new class extends Migration
      * @return void
      */
     public function up()
-{
-    Schema::create('tasks', function (Blueprint $table) {
-        $table->id();
-        $table->string('title', 255); // Adjust length as needed
-        $table->text('contents');
-        $table->string('image_at'); // Adjust length as needed
-        $table->foreignId('user_id')->constrained()->onDelete('cascade');
-        $table->timestamps();
-    });
-}
+
+    {
+        Schema::create('tasks', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('title', 30);
+            $table->string('body', 140);
+            $table->text('image_at')->nullable();
+            $table->bigInteger('user_id')->unsigned();
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
+    }
+
 
     /**
      * Reverse the migrations.

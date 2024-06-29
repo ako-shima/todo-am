@@ -24,15 +24,19 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
-        $task = new Task;
-       
-        $task->title = $request->title;
-        $task->contents = $request->contents;
-        $task->image_at = $request->image_at;
-        
-        $task->user_id = Auth::id();
-        $task->save();
-    
+        $request->validate([
+            'title' => 'required|string|max:30',
+            'body' => 'required|string|max:140',
+            'image_at' => 'nullable|string',
+        ]);
+
+        Task::create([
+            'title' => $request->title,
+            'contents' => $request->contents,
+            'image_at' => $request->image_at,
+            'user_id' => Auth::id(),
+        ]);
+      
         return redirect()->route('tasks.index');
     }
 
@@ -46,6 +50,12 @@ class TaskController extends Controller
     // 更新処理
     function update(Request $request, $id)
     {
+        $request->validate([
+            'title' => 'required|string|max:30',
+            'body' => 'required|string|max:140',
+            // 'image_at' => 'nullable|string',
+        ]);
+
         $task = Task::find($id);
 
         $task -> title = $request -> title;
