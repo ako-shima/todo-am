@@ -24,7 +24,7 @@
                         <label for="image">Image</label>
                         <input type="file" name="image" class="form-control">
                     </div> --}}
-                    @if($task->image)
+                    {{-- @if($task->image) --}}
                     <div class="form-group">
                         <img src="{{ asset('storage/' . $task->image) }}" alt="Image" style="max-width: 200px;">
                     </div>
@@ -49,7 +49,7 @@
     
                 
             </div>
-        @endif
+        {{-- @endif --}}
             {{-- <button type="submit" class="p-3 rounded bg-pink-300">Update Task</button> --}}
             <button type="submit" class="p-3 rounded bg-pink" onclick='countCharacters()'>
                 Update Task
