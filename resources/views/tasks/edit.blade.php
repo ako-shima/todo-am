@@ -18,7 +18,7 @@
             @csrf
             @method('PUT')
             
-            <div class="d-flex">
+            <div class="d-flex py-4">
                 <div>
                     {{-- <div class="form-group">
                         <label for="image">Image</label>
@@ -51,7 +51,7 @@
             </div>
         {{-- @endif --}}
             {{-- <button type="submit" class="p-3 rounded bg-pink-300">Update Task</button> --}}
-            <button type="submit" class="p-3 rounded bg-pink" onclick='countCharacters()'>
+            <button type="submit" class=" p-3 rounded bg-pink" onclick='countCharacters()'>
                 Update Task
             </button>
         </form>
