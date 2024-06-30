@@ -8,7 +8,7 @@
         
         <form action="{{ route('tasks.store') }}" method="POST">
             @csrf
-          
+        
             
             <div class="form-group">
                 <label for="title">Title</label>
@@ -19,7 +19,7 @@
                 <label for="body">Content</label>
                 <textarea name="body" id="body" class="form-control"></textarea>
             </div>
-               
+            
             <div class="form-group">
                 <label for="image_at">image_at</label>
                 <input type="text" name="image_at" id="image_at" class="form-control"  required>

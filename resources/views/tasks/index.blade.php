@@ -38,19 +38,22 @@
                   </div>
                 @endforeach
               </div>
-              <form action="">
-                <textarea name="" id="" cols="30" rows="3" placeholder="Comment here . . ."></textarea>
-                <input type="submit" value="Comment" class="p-3 rounded bg-blue-300">
-              </form>
 
             </div>
             <div class="flex gap-2">
+              <button class="p-3 rounded bg-stone-300" onclick="window.location='{{ route('comments.create', $task->id) }}'">
+                comment
+              </button>
               <a href="{{ route('tasks.edit', $task->id) }}" class="p-3 rounded bg-pink-300">edit</a>
               <form method="POST" action="{{ route('tasks.destroy', $task->id) }}">
                 @csrf
                 @method('delete')
                 <button class="p-3 rounded bg-stone-300" type="submit">delete</button>
               </form>
+              
+              <button class="p-3 rounded bg-stone-300">
+                done
+              </button>
             </div>
           </div>
         {{-- @else
@@ -76,7 +79,7 @@
         </div>
         @endif --}}
       @endforeach
-      <button class="flex mx-auto mt-20 text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">New Post</button>
+      <button class="flex ml-auto text-black  border-0 py-2 px-8 focus:outline-none rounded text-5xl" onclick="window.location='{{ route('tasks.create') }}'">+</button>
     </div>
   </section>
 
