@@ -36,7 +36,7 @@ class TaskController extends Controller
             'image_at' => $request->image_at,
             'user_id' => Auth::id(),
         ]);
-      
+    
         return redirect()->route('tasks.index');
     }
 
@@ -46,7 +46,7 @@ class TaskController extends Controller
         $task = Task::find($id);
         return view('tasks.show',['task'=>$task]);
     }
-  
+
     // 更新処理
     function update(Request $request, $id)
     {
@@ -74,10 +74,10 @@ class TaskController extends Controller
 
     public function destroy($id)
     {
-        $task = Task::find($id);
+        $task = Task::findOrFail($id);
 
         $task -> delete();
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index')->with('success', 'It has been deleted.' );
     }
 }
