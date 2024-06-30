@@ -84,7 +84,7 @@
         </div>
         @endif --}}
       @endforeach
-      <button class="flex ml-auto text-black  border-0 py-2 px-8 focus:outline-none rounded text-5xl" onclick="window.location='{{ route('tasks.create') }}'">+</button>
+      <button class="add-post flex ml-auto text-black  border-0 py-2 px-8 focus:outline-none rounded text-5xl" onclick="window.location='{{ route('tasks.create') }}'">+</button>
     </div>
   </section>
 
