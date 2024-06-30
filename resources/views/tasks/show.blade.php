@@ -11,6 +11,11 @@
                 <div class="card-body">
                 <p class="card-text">内容：{{ $task->body }}</p>
                 <p>投稿日時：{{ $task->created_at }}</p>
+                @if($task->image)
+                @endif
+        <div class="form-group">
+            <img src="{{ asset('storage/' . $task->image) }}" alt="Task Image" style="max-width: 400px;">
+        </div>
                 <div class="d-flex justify-content-left">
 
                 

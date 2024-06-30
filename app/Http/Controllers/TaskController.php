@@ -27,15 +27,21 @@ class TaskController extends Controller
         $request->validate([
             'title' => 'required|string|max:30',
             'body' => 'required|string|max:140',
-            'image_at' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        Task::create([
-            'title' => $request->title,
-            'body' => $request->body,
-            'image_at' => $request->image_at,
-            'user_id' => Auth::id(),
-        ]);
+        $path = null;
+    if ($request->hasFile('image')) {
+        // 画像を保存
+        $path = $request->file('image')->store('images', 'public');
+    }
+
+    Task::create([
+        'title' => $request->title,
+        'body' => $request->body,
+        'image_at' => $path,
+        'user_id' => Auth::id(),
+    ]);
     
         return redirect()->route('tasks.index');
     }
@@ -64,9 +70,9 @@ class TaskController extends Controller
 
     if ($request->hasFile('image')) {
         // 古い画像を削除
-        if ($task->image) {
-            Storage::delete('public/' . $task->image);
-        }
+        // if ($task->image) {
+        //     Storage::delete('public/' . $task->image);
+        // }
 
         // 新しい画像を保存
         $path = $request->file('image')->store('images', 'public');
