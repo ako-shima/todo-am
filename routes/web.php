@@ -49,4 +49,5 @@ Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
 Route::delete('/tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 
 Route::get('/tasks/{id}/comment', [CommentController::class, 'create'])->name('comments.create');
- 
+
+Route::post('/tasks/{id}/comment', [CommentController::class, 'store'])->name('comments.store');
