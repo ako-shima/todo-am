@@ -48,8 +48,13 @@
               <form method="POST" action="{{ route('tasks.destroy', $task->id) }}">
                 @csrf
                 @method('delete')
-                <button class="p-3 rounded bg-stone-300" type="submit">delete</button>
+                <button class="p-3 rounded bg-stone-300" type="submit" onclick="return confirm('Do you really want to delete this?')">delete</button>
               </form>
+              {{-- <script>
+                function confirmDelete(){
+                  return confirm('Do you really want to delete this?')
+                }
+              </script> --}}
               
               <button class="p-3 rounded bg-stone-300">
                 done
