@@ -27,6 +27,7 @@ class TaskController extends Controller
         $request->validate([
             'title' => 'required|string|max:30',
             'body' => 'required|string|max:140',
+            'deadline' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -39,6 +40,7 @@ class TaskController extends Controller
     Task::create([
         'title' => $request->title,
         'body' => $request->body,
+        'deadline' => $request->deadline,
         'image_at' => $path,
         'user_id' => Auth::id(),
     ]);
