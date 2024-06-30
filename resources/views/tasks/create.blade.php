@@ -6,7 +6,7 @@
     <div class="container">
         <h1>Create Task</h1>
         
-        <form action="{{ route('tasks.store') }}" method="POST">
+        <form action="{{ route('tasks.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             
             <div class="form-group">
