@@ -21,8 +21,8 @@
             </div>
             
             <div class="form-group">
-                <label for="image_at">image_at</label>
-                <input type="text" name="image_at" id="image_at" class="form-control"  required>
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image" class="form-control">
             </div>
 
             

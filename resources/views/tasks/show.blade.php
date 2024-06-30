@@ -9,9 +9,15 @@
                     <h5>Title：{{ $task->title }}</h5>
                 </div >
                 <div class="card-body">
-                <p class="card-text">Content：{{ $task->body }}</p>
-                <p>Date & Time：{{ $task->created_at }}</p>
-                <div class="d-flex justify-content-left">
+
+                <p class="card-text">内容：{{ $task->body }}</p>
+                <p>投稿日時：{{ $task->created_at }}</p>
+                @if($task->image)
+                @endif
+        <div class="form-group">
+            <img src="{{ asset('storage/' . $task->image) }}" alt="Task Image" style="max-width: 400px;">
+        </div>
+
 
                 
                 <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-lg"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
