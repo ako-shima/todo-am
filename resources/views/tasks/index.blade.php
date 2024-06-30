@@ -30,7 +30,7 @@
               </a>
             </div>
 
-            <div class="comments">
+            {{-- <div class="comments">
               <div class="comment-lists">
                 @foreach($task->comments as $comment)
                   <div class="comment flex">
@@ -39,7 +39,7 @@
                 @endforeach
               </div>
 
-            </div>
+            </div> --}}
             <div class="flex gap-2">
               <button class="p-3 rounded bg-stone-300" onclick="window.location='{{ route('comments.create', $task->id) }}'">
                 comment
