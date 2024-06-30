@@ -26,7 +26,7 @@
                     </div> --}}
                     {{-- @if($task->image) --}}
                     <div class="form-group">
-                        <img src="{{ asset('storage/' . $task->image) }}" alt="Image" style="max-width: 200px;">
+                        <img src="{{ asset('storage/' . $task->image_at) }}" alt="Image" style="max-width: 200px;">
                     </div>
                     <div class="form-group">
                         <label for="image">Image</label>

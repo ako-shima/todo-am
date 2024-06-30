@@ -15,7 +15,7 @@
                 @if($task->image)
                 @endif
         <div class="form-group">
-            <img src="{{ asset('storage/' . $task->image) }}" alt="Task Image" style="max-width: 400px;">
+            <img src="{{ asset('storage/' . $task->image_at) }}" alt="Task Image" style="max-width: 400px;">
         </div>
 
 
