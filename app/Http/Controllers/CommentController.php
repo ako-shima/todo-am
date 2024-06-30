@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -25,9 +28,17 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $task_id)
     {
-        //
+        Comment::create([
+            
+            'content' => $request->content,
+            'task_id' => $task_id,
+            'user_id' => Auth::id(),
+        ]);
+
+        $task = Task::find($task_id);
+        return view('tasks.show',['task'=>$task]);
     }
 
     /**

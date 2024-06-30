@@ -6,9 +6,8 @@
     <div class="container">
         <h1>Create Comment</h1>
         
-        <form action="" method="POST">
+        <form action="{{ route('comments.store', $task_id) }}" method="POST">
             @csrf
-            <input type="number" hidden name="task_id" value="{{ $task_id }}">
             
             <div class="form-group">
                 <label for="content">Content</label>
