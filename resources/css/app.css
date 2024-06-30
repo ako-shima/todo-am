@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.add-post {
+    position: fixed;
+    bottom: 8%;
+    right: 14%;
+}
