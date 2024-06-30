@@ -53,16 +53,30 @@ class TaskController extends Controller
         $request->validate([
             'title' => 'required|string|max:30',
             'body' => 'required|string|max:140',
-            // 'image_at' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $task = Task::find($id);
 
         $task -> title = $request -> title;
         $task -> body = $request -> body;
+
+
+    if ($request->hasFile('image')) {
+        // 古い画像を削除
+        if ($task->image) {
+            Storage::delete('public/' . $task->image);
+        }
+
+        // 新しい画像を保存
+        $path = $request->file('image')->store('images', 'public');
+        $task->image = $path;
+    }
+
         $task -> save();
 
         return view('tasks.show', ['task'=>$task]);
+        return redirect()->route('tasks.index')->with('success', 'Task updated successfully');
         }
 
     // 編集フォームの表示
