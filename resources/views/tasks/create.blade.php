@@ -8,7 +8,6 @@
         
         <form action="{{ route('tasks.store') }}" method="POST">
             @csrf
-        
             
             <div class="form-group">
                 <label for="title">Title</label>
@@ -18,6 +17,11 @@
             <div class="form-group">
                 <label for="body">Content</label>
                 <textarea name="body" id="body" class="form-control"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="deadline">deadline</label>
+                <input type="datetime-local" name="deadline" id="deadline" class="form-control"  required>
             </div>
             
             <div class="form-group">

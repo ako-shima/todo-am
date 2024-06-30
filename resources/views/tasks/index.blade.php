@@ -41,14 +41,14 @@
 
             </div> --}}
             <div class="flex gap-2">
-              <button class="p-3 rounded bg-stone-300" onclick="window.location='{{ route('comments.create', $task->id) }}'">
+              <button class="p-3 rounded bg-pink-200" onclick="window.location='{{ route('comments.create', $task->id) }}'">
                 comment
               </button>
               <a href="{{ route('tasks.edit', $task->id) }}" class="p-3 rounded bg-pink-300">edit</a>
               <form method="POST" action="{{ route('tasks.destroy', $task->id) }}">
                 @csrf
                 @method('delete')
-                <button class="p-3 rounded bg-stone-300" type="submit" onclick="return confirm('Do you really want to delete this?')">delete</button>
+                <button class="p-3 rounded bg-pink-400" type="submit" onclick="return confirm('Do you really want to delete this?')">delete</button>
               </form>
               {{-- <script>
                 function confirmDelete(){
@@ -56,7 +56,7 @@
                 }
               </script> --}}
               
-              <button class="p-3 rounded bg-stone-300">
+              <button class="p-3 rounded bg-pink-500">
                 done
               </button>
             </div>
