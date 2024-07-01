@@ -28,74 +28,40 @@
                   </p>
               </div>
               <div class="tw-flex tw-gap-2">
-                  <button class="tw-p-3 tw-rounded tw-bg-pink-200" onclick="window.location='{{ route('comments.create', $task->id) }}'">comment</button>
-                  <a href="{{ route('tasks.edit', $task->id) }}" class="tw-p-3 tw-rounded tw-bg-pink-300">edit</a>
+                  <button class="btn btn-lg tw-bg-white-100 tw-text-pink hover:tw-bg-pink-100 hover:tw-text-black" onclick="window.location='{{ route('comments.create', $task->id) }}'"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                    <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+                  </svg>
+                </button>
+                  <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-lg tw-bg-white-100 tw-text-pink hover:tw-bg-pink-100 hover:tw-text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                  </a>
                   <form method="POST" action="{{ route('tasks.destroy', $task->id) }}">
-                      @csrf
-                      @method('delete')
-                      <button class="tw-p-3 tw-rounded tw-bg-pink-400" type="submit" onclick="return confirm('Do you really want to delete this?')">delete</button>
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-lg tw-bg-white-100 tw-text-pink hover:tw-bg-pink-100 hover:tw-text-black" onclick='return confirm("Do you really want to delete this？");'>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                      </svg>
+                    </button>
                   </form>
-                  <button class="tw-p-3 tw-rounded tw-bg-pink-500">done</button>
+                  <a href="{{ route('tasks.index') }}" class="btn btn-lg tw-bg-white-100 tw-text-pink hover:tw-bg-pink-100 hover:tw-text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-bookmark-check" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+                      <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                    </svg>
+                  </a>
               </div>
           </div>
       @endforeach
-      <button class="add-post tw-flex ml-auto tw-text-black  tw-border-0 tw-py-2 tw-px-8 tw-focus:outline-none tw-rounded tw-text-5xl" onclick="window.location='{{ route('tasks.create') }}'">+</button>
-
-      {{-- <button class="tw-add-post tw-flex tw-ml-auto tw-text-black tw-border-0 tw-py-2 tw-px-8 tw-focus:outline-none tw-rounded tw-text-5xl" onclick="window.location='{{ route('tasks.create') }}'">+</button> --}}
+      <button   class="add-post tw-flex ml-auto tw-text-black  tw-border-0 tw-py-2 tw-px-8 tw-focus:outline-none tw-rounded tw-text-8xl" onclick="window.location='{{ route('tasks.create') }}'">+</button>
   </div>
 </section>
 
-{{-- <section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
-      @foreach ($tasks as $task)
-       
-          <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
-            <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 flex-shrink-0">
-             
-              
-         
-              <img src="{{ asset('storage/' . $task->image_at) }}" alt="Image" style="max-width: 150;  width: 125;
-            height: 100px;
-            border-radius: 50%;
- ">
-         
-            
-      
-            </div>
-            <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-              <h2 class="text-gray-900 text-lg title-font font-medium mb-2">{{ $task->title }}</h2>
-              <p class="leading-relaxed text-base">{{ $task->body }}</p>
-              <p class="leading-relaxed text-base">{{ $task->deadline }} <a href="{{ route('tasks.show', $task) }}" class="mt-3 text-pink-500 inline-flex items-center pl-8">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg><span>Read More</span>
-              </a></p>
 
-              
-            </div>
-
-
-          
-            <div class="flex gap-2">
-              <button class="p-3 rounded bg-pink-200" onclick="window.location='{{ route('comments.create', $task->id) }}'">
-                comment
-              </button>
-              <a href="{{ route('tasks.edit', $task->id) }}" class="p-3 rounded bg-pink-300">edit</a>
-              <form method="POST" action="{{ route('tasks.destroy', $task->id) }}">
-                @csrf
-                @method('delete')
-                <button class="p-3 rounded bg-pink-400" type="submit" onclick="return confirm('Do you really want to delete this?')">delete</button>
-              </form>
-              
-              <button class="p-3 rounded bg-pink-500">
-                done
-              </button>
-            </div>
-          </div>
-        
-      @endforeach
-      <button class="add-post flex ml-auto text-black  border-0 py-2 px-8 focus:outline-none rounded text-5xl" onclick="window.location='{{ route('tasks.create') }}'">+</button>
-    </div>
-</section> --}}
 
     @endsection
