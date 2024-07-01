@@ -25,8 +25,8 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-   Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
-   Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
+Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
 
 Route::put('/tasks/{id}', [TaskController::class, 'update'])->name('tasks.update');
 

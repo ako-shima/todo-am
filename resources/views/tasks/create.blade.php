@@ -30,7 +30,7 @@
             </div>
 
             
-            <button type="submit" class="btn btn-primary">Create Task</button>
+            <button type="submit" class="btn btn-primary:" style="color:black; background-color:rgb(249, 168, 212); border-style:none; margin: 10px 0;">Create Task</button>
         </form>
     </div>
 @endsection

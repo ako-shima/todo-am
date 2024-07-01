@@ -43,15 +43,12 @@
                     <div class="form-group pb-3" >
                         <label for="body">Body</label>
                         <textarea name="body" id="body" class="form-control">{{ old('body', $task->body) }}</textarea>
-        
                     </div>
                 </div>
-    
-                
             </div>
         {{-- @endif --}}
             {{-- <button type="submit" class="p-3 rounded bg-pink-300">Update Task</button> --}}
-            <button type="submit" class=" p-3 rounded bg-pink" onclick='countCharacters()'>
+            <button type="submit" class="p-3 rounded bg-pink" onclick='countCharacters()'>
                 Update Task
             </button>
         </form>
