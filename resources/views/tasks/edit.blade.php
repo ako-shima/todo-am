@@ -51,6 +51,7 @@
             </div>
         {{-- @endif --}}
             {{-- <button type="submit" class="p-3 rounded bg-pink-300">Update Task</button> --}}
+            <p class="leading-relaxed text-base">{{ $task->deadline }} <a href="{{ route('tasks.show', $task) }}" class="mt-3 text-pink-500 inline-flex items-center pl-8">
             <button type="submit" class=" p-3 rounded bg-pink" onclick='countCharacters()'>
                 Update Task
             </button>
