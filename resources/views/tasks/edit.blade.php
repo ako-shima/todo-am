@@ -44,6 +44,10 @@
                         <label for="body">Body</label>
                         <textarea name="body" id="body" class="form-control">{{ old('body', $task->body) }}</textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="deadline">Deadline</label>
+                        <input type="datetime-local" name="deadline" id="deadline" class="form-control" value="{{ $task->deadline }}" required>
+                    </div>
                 </div>
             </div>
         {{-- @endif --}}
