@@ -30,6 +30,8 @@ Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.crea
 
 Route::put('/tasks/{id}', [TaskController::class, 'update'])->name('tasks.update');
 
+Route::get('/tasks/completed', [TaskController::class, 'getCompleted'])->name('tasks.index.completed');
+
 Route::get('/tasks/{id}', [TaskController::class, 'show'])->name('tasks.show');
 
 
@@ -48,3 +50,8 @@ Route::delete('/tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.de
 Route::get('/tasks/{id}/comment', [CommentController::class, 'create'])->name('comments.create');
 
 Route::post('/tasks/{id}/comment', [CommentController::class, 'store'])->name('comments.store');
+
+Route::patch('/tasks/{id}/completed', [TaskController::class, 'completed'])->name('tasks.completed');
+
+
+

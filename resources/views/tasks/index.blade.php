@@ -19,13 +19,13 @@
       @foreach ($tasks as $task)
           <div class="tw-flex tw-items-center lg:tw-w-3/5 tw-mx-auto tw-border-b tw-pb-10 tw-mb-10 tw-border-gray-200 sm:tw-flex-row tw-flex-col">
               <div class="sm:tw-w-32 sm:tw-h-32 tw-h-20 tw-w-20 sm:tw-mr-10 tw-inline-flex tw-items-center tw-justify-center tw-rounded-full tw-bg-pink-100 tw-text-pink-500 tw-flex-shrink-0 tw-overflow-hidden">
-               
+              
                       <img src="{{ asset('storage/' . $task->image_at) }}" style=" max-width: 150;  width: 115px;
             height: 115px;
             border-radius: 50%;">
                 
                     
-               
+              
               </div>
               <div class="tw-flex-grow sm:tw-text-left m-3 tw-text-center tw-mt-6 sm:tw-mt-0">
                   <h2 class="tw-text-gray-900 tw-text-lg tw-title-font tw-font-medium tw-mb-2">{{ $task->title }}</h2>
@@ -61,12 +61,16 @@
                       </svg>
                     </button>
                   </form>
-                  <a href="{{ route('tasks.index') }}" class="btn btn-lg tw-bg-white-100 tw-text-pink hover:tw-bg-pink-100 hover:tw-text-black">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-bookmark-check" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
-                      <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
-                    </svg>
-                  </a>
+                  <form method="POST" action="{{ route('tasks.completed', $task->id) }}">
+                    @csrf
+                    @method('patch')
+                    <button type="submit" class="btn btn-lg tw-bg-white-100 tw-text-pink hover:tw-bg-pink-100 hover:tw-text-black">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-bookmark-check" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                      </svg>
+                    </button>
+                </form>
               </div>
           </div>
       @endforeach

@@ -19,12 +19,14 @@ class TaskController extends Controller
 
     function index(Request $request)
     {
+      
         // 並び替えの基準をリクエストから取得
         $sort = $request->query('sort', 'created_at'); // デフォルトは登録日（created_at）
         $direction = $request->query('direction', 'desc'); // デフォルトは降順（desc）
 
         // クエリを構築して並び替えを適用
         $tasks = Task::orderBy($sort, $direction)->get();
+
 
         return view('tasks.index', ['tasks' => $tasks]);
     }
@@ -58,6 +60,13 @@ class TaskController extends Controller
     ]);
     
         return redirect()->route('tasks.index');
+    }
+
+    public function getCompleted()
+    {
+        $tasks = Task::where('is_completed', 1)->get();
+        // dd($tasks);
+        return view('tasks.completed-task', ['tasks' => $tasks]);
     }
 
     function show($id)
@@ -114,5 +123,16 @@ class TaskController extends Controller
         $task -> delete();
 
         return redirect()->route('tasks.index')->with('success', 'It has been deleted.' );
+    }
+
+    function completed($id)
+    {
+        $task = Task::find($id);
+
+        $task -> is_completed = 1;
+
+        $task -> save();
+
+        return redirect()->route('tasks.index')->with('success', 'Task completed.' );
     }
 }
