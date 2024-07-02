@@ -79,14 +79,8 @@ class TaskController extends Controller
 
 
     if ($request->hasFile('image')) {
-        // 古い画像を削除
-        // if ($task->image) {
-        //     Storage::delete('public/' . $task->image);
-        // }
-
-        // 新しい画像を保存
         $path = $request->file('image')->store('images', 'public');
-        $task->image = $path;
+        $task->image_at = $path;
     }
 
         $task -> save();
