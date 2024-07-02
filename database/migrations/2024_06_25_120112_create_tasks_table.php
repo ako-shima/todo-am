@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('title', 30);
             $table->string('body', 140);
-            $table->timestamp('deadline');
+            $table->timestamp('deadline')->nullable();
             $table->text('image_at')->nullable();
             $table->boolean('is_completed')->default(0);
             $table->bigInteger('user_id')->unsigned();

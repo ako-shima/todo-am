@@ -8,15 +8,29 @@ use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
-    //メソッド = 技
-    //function index()←これが一つのメソッド。indexメソッドという
-    function index()
+    // //メソッド = 技
+    // //function index()←これが一つのメソッド。indexメソッドという
+    // function index()
+    // {
+    //     $tasks = Task::all();
+    //     // dd($tasks);
+    //     return view('tasks.index', ['tasks' => $tasks]);
+    // }
+
+    function index(Request $request)
     {
-        $tasks = Task::where('is_completed', 0)->get();
-        // dd($tasks);
+      
+        // 並び替えの基準をリクエストから取得
+        $sort = $request->query('sort', 'created_at'); // デフォルトは登録日（created_at）
+        $direction = $request->query('direction', 'desc'); // デフォルトは降順（desc）
+
+        // クエリを構築して並び替えを適用
+        $tasks = Task::orderBy($sort, $direction)->get();
+
+
         return view('tasks.index', ['tasks' => $tasks]);
     }
-
+    
     function create()
     {
         return view('tasks.create');
