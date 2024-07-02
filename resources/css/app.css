@@ -7,24 +7,3 @@
     bottom: 8%;
     right: 14%;
 }
-
-.sort-links {
-    padding-top: 30px;
-    padding-left: 340px;
-    display: flex;
-    gap: 20px; /* リンク間のスペースを設定 */
-    font-size: 1.5rem; /* フォントサイズを大きく */
-}
-
-.sort-links a {
-    display: flex;
-    align-items: center;
-    text-decoration: none; /* 下線を消す */
-    color: inherit; /* 親要素の色を継承 */
-}
-
-.sort-links svg {
-    margin-left: 8px; /* アイコンとテキストの間にスペースを追加 */
-    width: 24px; /* アイコンの幅を大きく */
-    height: 24px; /* アイコンの高さを大きく */
-}
