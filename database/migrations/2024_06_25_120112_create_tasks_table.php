@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('body', 140);
             $table->timestamp('deadline');
             $table->text('image_at')->nullable();
+            $table->boolean('is_completed')->default(0);
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
 

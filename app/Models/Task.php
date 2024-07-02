@@ -15,6 +15,7 @@ class Task extends Model
         'deadline',
         'image_at',
         'user_id',
+        'is_completed',
     ];
 
     public function user()
