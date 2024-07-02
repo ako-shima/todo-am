@@ -3,7 +3,10 @@
 @section('content')
     
 <section class="tw-text-gray-600 tw-body-font">
+    <h1 class="tw-text-black-900" style="text-align: center; font-size: 2em; font-weight: bold; margin-top:50px">Completed Tasks</h1>
+
 <div class="tw-container tw-px-5 tw-py-24 tw-mx-auto">
+
     @foreach ($tasks as $task)
         <div class="tw-flex tw-items-center lg:tw-w-3/5 tw-mx-auto tw-border-b tw-pb-10 tw-mb-10 tw-border-gray-200 sm:tw-flex-row tw-flex-col">
             <div class="sm:tw-w-32 sm:tw-h-32 tw-h-20 tw-w-20 sm:tw-mr-10 tw-inline-flex tw-items-center tw-justify-center tw-rounded-full tw-bg-pink-100 tw-text-pink-500 tw-flex-shrink-0 tw-overflow-hidden">
