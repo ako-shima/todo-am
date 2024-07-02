@@ -12,7 +12,7 @@ class TaskController extends Controller
     //function index()←これが一つのメソッド。indexメソッドという
     function index()
     {
-        $tasks = Task::all();
+        $tasks = Task::where('is_completed', 0)->get();
         // dd($tasks);
         return view('tasks.index', ['tasks' => $tasks]);
     }
@@ -46,6 +46,13 @@ class TaskController extends Controller
     ]);
     
         return redirect()->route('tasks.index');
+    }
+
+    public function getCompleted()
+    {
+        $tasks = Task::where('is_completed', 1)->get();
+        // dd($tasks);
+        return view('tasks.completed-task', ['tasks' => $tasks]);
     }
 
     function show($id)
@@ -102,5 +109,16 @@ class TaskController extends Controller
         $task -> delete();
 
         return redirect()->route('tasks.index')->with('success', 'It has been deleted.' );
+    }
+
+    function completed($id)
+    {
+        $task = Task::find($id);
+
+        $task -> is_completed = 1;
+
+        $task -> save();
+
+        return redirect()->route('tasks.index')->with('success', 'Task completed.' );
     }
 }
