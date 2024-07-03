@@ -2,45 +2,41 @@
 
 @section('content')
 <!-- Edit Form -->
-<h1 class="tw-text-black-900" style="text-align: center; font-size: 2em; font-weight: bold; margin:50px">My Page</h1>
+<h1 class="tw-text-black-900" style="text-align: center; font-size: 2em; font-weight: bold; margin:50px">Edit Profile</h1>
 
 <form class="edit-form" method="POST" action="{{ route('profile.update') }}">
     @csrf
     @method('PUT')
 
     <div class="form-group">
-        <label for="name">Name：  {{ ucfirst(Auth::user()->name) }}</label>
-        {{-- <input id="name" type="text" name="name" value="{{ Auth::user()->name }}" required> --}}
+        <label for="name">Name:</label>
+        <input id="name" type="text" name="name" value="{{ Auth::user()->name }}" required>
     </div>
 
     <div class="form-group">
-        <label for="email">Email：  {{ ucfirst(Auth::user()->email) }}</label>
-        {{-- <input id="email" type="email" name="email" value="{{ Auth::user()->email }}" required> --}}
+        <label for="email">Email:</label>
+        <input id="email" type="email" name="email" value="{{ Auth::user()->email }}" required>
     </div>
-{{-- 
+
     <div class="form-group">
         <label for="password">New Password:</label>
-        {{-- <div class="input-group">
+        <div class="input-group">
             <input id="password" type="password" name="password" class="form-control" autocomplete="new-password">
             <div class="input-group-append">
-                <button type="button" class="btn btn-outline-secondary toggle-password" toggle="#password">
+                {{-- <button type="button" class="btn btn-outline-secondary toggle-password" toggle="#password">
                     <i id="password-toggle-icon" class="bi bi-eye"></i>
                 </button> --}}
-            {{-- </div>
+            </div>
         </div>
-    </div> --}} 
+    </div>
 
-    {{-- <div class="form-group">
+    <div class="form-group">
         <label for="password_confirmation">Confirm Password:</label>
         <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" autocomplete="new-password">
-    </div> --}}
+    </div>
 
-    <a href="{{ route('profile.edit') }}" class="p-3 rounded btn" style="background-color: pink; color: black;">
-        Edit Profile
-    </a>
-
-    {{-- <h2 class="tw-text-black-900" style="text-align: center; font-size: 2em; font-weight: bold; margin:50px">My Task</h2> --}}
-
+    <button type="submit"  class="p-3 rounded btn " style="background-color: pink; color:black">Update Profile</button>
+</form>
 
 @push('scripts')
 <script>
@@ -58,8 +54,6 @@
         });
     });
 </script>
-
-
 @endpush
 
 

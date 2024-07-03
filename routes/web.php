@@ -27,6 +27,8 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+
 Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
 Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
