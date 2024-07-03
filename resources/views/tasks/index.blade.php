@@ -41,7 +41,7 @@
               
               </div>
               <div class="tw-flex-grow sm:tw-text-left m-3 tw-text-center tw-mt-6 sm:tw-mt-0">
-                  <h2 name="title" class="tw-text-gray-900 tw-text-lg tw-title-font tw-font-medium tw-mb-2">{{ $task->title }}</h2>
+                  <h2 name="title" class="tw-text-gray-900 tw-text-lg tw-title-font tw-font-medium tw-mb-2">{{ $task->user->name }} : {{ $task->title }}</h2>
                   <p name="body" class="tw-leading-relaxed tw-text-base">{{ $task->body }}</p>
                   <p class="tw-leading-relaxed tw-text-base">{{ $task->deadline }}
                       <a href="{{ route('tasks.show', $task) }}" class="tw-mt-3 tw-text-pink-500 tw-inline-flex tw-items-center tw-pl-8">
