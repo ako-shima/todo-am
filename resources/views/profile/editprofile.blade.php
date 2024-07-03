@@ -4,6 +4,13 @@
 <!-- Edit Form -->
 <h1 class="tw-text-black-900" style="text-align: center; font-size: 2em; font-weight: bold; margin:50px">Edit Profile</h1>
 
+<!-- Success Message -->
+@if(session('success'))
+    <div class="alert alert-success custom-alert">
+        {{ session('success') }}
+    </div>
+@endif
+
 <form class="edit-form" method="POST" action="{{ route('profile.update') }}">
     @csrf
     @method('PUT')

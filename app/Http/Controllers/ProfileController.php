@@ -50,7 +50,7 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:15',
             'email' => 'required|email|unique:users,email,'.Auth::id(),
             'password' => 'nullable|string|min:8|confirmed',
         ]);
@@ -63,7 +63,8 @@ class ProfileController extends Controller
         }
         $user->save();
 
-        return redirect()->back()->with('success', 'Profile updated successfully.');
+         // Flash a success message to the session
+    return redirect()->route('profile.edit')->with('success', 'Your profile has been successfully updated.');
     }
 
     /**
