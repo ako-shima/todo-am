@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Todo') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -82,7 +82,7 @@
 
 .edit-form .btn {
     width: 100%;
-    background-color: #007bff;
+    background-color: rgba(255, 192, 203, 0.598);
     color: #fff;
     padding: 10px;
     border: none;
@@ -91,7 +91,7 @@
 }
 
 .edit-form .btn:hover {
-    background-color: #0056b3;
+    background-color:  rgba(255, 192, 203, 0.598);
 }
 
 </style>
