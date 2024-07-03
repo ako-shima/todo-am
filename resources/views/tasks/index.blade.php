@@ -11,10 +11,23 @@
     <a href="{{ route('tasks.index', ['sort' => 'deadline', 'direction' => 'asc']) }}">　DEADLINE<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
       <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.5.5 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
     </svg></a>
+    <div style="margin-left: 412px">
+      <form class="text-right" action="{{ route('tasks.index') }}" method="GET">
+        <input style="eight: 41px;
+        width: 222px;" type="text" name="search" placeholder="Search" value="{{ request('search') }}">
+        <button style="    height: 50px;
+        width: 61px;" class="btn btn-2xl tw-bg-white-100 tw-text-pink tw-bg-pink-300 hover:tw-bg-pink-200 hover:tw-text-black"  type="submit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+    
 </div>
 
-    
 <section class="tw-text-gray-600 tw-body-font">
+
   <div class="tw-container tw-px-5 tw-py-24 tw-mx-auto">
       @foreach ($tasks as $task)
           <div class="tw-flex tw-items-center lg:tw-w-3/5 tw-mx-auto tw-border-b tw-pb-10 tw-mb-10 tw-border-gray-200 sm:tw-flex-row tw-flex-col">
@@ -28,8 +41,8 @@
               
               </div>
               <div class="tw-flex-grow sm:tw-text-left m-3 tw-text-center tw-mt-6 sm:tw-mt-0">
-                  <h2 class="tw-text-gray-900 tw-text-lg tw-title-font tw-font-medium tw-mb-2">{{ $task->title }}</h2>
-                  <p class="tw-leading-relaxed tw-text-base">{{ $task->body }}</p>
+                  <h2 name="title" class="tw-text-gray-900 tw-text-lg tw-title-font tw-font-medium tw-mb-2">{{ $task->title }}</h2>
+                  <p name="body" class="tw-leading-relaxed tw-text-base">{{ $task->body }}</p>
                   <p class="tw-leading-relaxed tw-text-base">{{ $task->deadline }}
                       <a href="{{ route('tasks.show', $task) }}" class="tw-mt-3 tw-text-pink-500 tw-inline-flex tw-items-center tw-pl-8">
                           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="tw-w-4 tw-h-4 tw-ml-2" viewBox="0 0 24 24">
@@ -69,7 +82,7 @@
                         <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z"/>
                         <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0"/>
                       </svg>
-                     
+                      
                     </button>
                 </form>
               </div>
@@ -79,6 +92,4 @@
   </div>
 </section>
 
-
-
-    @endsection
+@endsection

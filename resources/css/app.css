@@ -40,7 +40,13 @@
         border-radius: 5px;
         text-align: center;
     }
-
-    
+    input {
+        border: 2px solid #fff; /* 通常時のボーダー色 */
+        padding: 5px;
+    }
+    input:focus {
+        border: 2px solid pink; /* フォーカス時のボーダー色 */
+        outline: none; /* デフォルトのアウトラインを削除 */
+    }
 
 

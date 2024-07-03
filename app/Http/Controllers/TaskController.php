@@ -12,11 +12,34 @@ class TaskController extends Controller
     //function index()←これが一つのメソッド。indexメソッドという
     public function index(Request $request)
     {
-        $sort = $request->query('sort', 'created_at'); // デフォルトは登録日（created_at）
-        $direction = $request->query('direction', 'desc'); // デフォルトは降順（desc）
-        $tasks = Task::orderBy($sort, $direction)->where('is_completed', 0)->get();
-        // dd($tasks);
-        return view('tasks.index', ['tasks' => $tasks]);
+        // $sort = $request->query('sort', 'created_at'); // デフォルトは登録日（created_at）
+        // $direction = $request->query('direction', 'desc'); // デフォルトは降順（desc）
+        // $tasks = Task::orderBy($sort, $direction)->where('is_completed', 0)->get();
+        // // dd($tasks);
+        // return view('tasks.index', ['tasks' => $tasks]);
+
+    $query = Task::query();
+
+    // 検索条件の処理
+    if ($request->has('search')) {
+        $search = $request->input('search');
+        $query->where(function($q) use ($search) {
+            $q->where('title', 'like', '%' . $search . '%')
+              ->orWhere('body', 'like', '%' . $search . '%');
+        });
+    }
+
+    // 並び替えの処理
+    $sort = $request->input('sort', 'created_at'); // デフォルトは'created_at'
+    $direction = $request->input('direction', 'asc'); // デフォルトは'asc'
+    $query->orderBy($sort, $direction);
+
+    // 完了していないタスクのみを取得
+    $query->where('is_completed', 0);
+
+    $tasks = $query->get();
+
+    return view('tasks.index', compact('tasks'));
     }
 
    
