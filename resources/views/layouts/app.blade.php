@@ -94,6 +94,10 @@
     background-color:  rgba(255, 192, 203, 0.598);
 }
 
+.dropdown-item:hover  {
+    background-color: pink;
+}
+
 </style>
 
 </head>
@@ -115,7 +119,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto ">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -136,7 +140,7 @@
                                 </a>
                               
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-end lists" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('profile.index') }}" role="button" >
                                         {{ ucfirst(Auth::user()->name) }}'s Page
 
