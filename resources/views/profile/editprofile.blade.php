@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Edit Form -->
-<h1 class="tw-text-black-900" style="text-align: center; font-size: 2em; font-weight: bold; margin:50px">Edit Profile</h1>
+<h1 class="tw-text-black-900" style="text-align: center; font-size: 2em; margin:50px">Edit Profile</h1>
 
 <!-- Success Message -->
 @if(session('success'))
