@@ -64,7 +64,7 @@ class ProfileController extends Controller
         $user->save();
 
          // Flash a success message to the session
-    return redirect()->route('profile.edit')->with('success', 'Your profile has been successfully updated.');
+    return redirect()->route('profile.index')->with('success', 'Your profile has been successfully updated.');
     }
 
     /**

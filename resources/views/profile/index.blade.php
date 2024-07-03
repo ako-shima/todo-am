@@ -3,7 +3,12 @@
 @section('content')
 <!-- Edit Form -->
 <h1 class="tw-text-black-900" style="text-align: center; font-size: 2em; margin:50px">My Page</h1>
-
+<!-- Success Message -->
+@if(session('success'))
+    <div class="alert alert-success custom-alert">
+        {{ session('success') }}
+    </div>
+@endif
 <form class="edit-form" method="POST" action="{{ route('profile.update') }}">
     @csrf
     @method('PUT')
