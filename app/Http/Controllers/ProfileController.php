@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
+    public function edit()
+{
+    return view('profile.editprofile');
+}
     /**
      * Display a listing of the resource.
      */
