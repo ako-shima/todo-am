@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Edit Form -->
-<h1 class="tw-text-black-900" style="text-align: center; font-size: 2em; font-weight: bold; margin:50px">My Page</h1>
+<h1 class="tw-text-black-900" style="text-align: center; font-size: 2em; margin:50px">My Page</h1>
 
 <form class="edit-form" method="POST" action="{{ route('profile.update') }}">
     @csrf

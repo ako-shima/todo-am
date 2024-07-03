@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Edit Form -->
-<h1 class="tw-text-black-900" style="text-align: center; font-size: 2em; font-weight: bold; margin:50px">Edit Profile</h1>
+<h1 class="tw-text-black-900" style="text-align: center; font-size: 2em; margin:50px">Edit Profile</h1>
 
 <!-- Success Message -->
 @if(session('success'))
@@ -28,7 +28,7 @@
     <div class="form-group">
         <label for="password">New Password:</label>
         <div class="input-group">
-            <input id="password" type="password" name="password" class="form-control" autocomplete="new-password">
+            <input id="password" type="password" name="password" class="form-control" placeholder="Password must be at least 8characters" autocomplete="new-password">
             <div class="input-group-append">
                 {{-- <button type="button" class="btn btn-outline-secondary toggle-password" toggle="#password">
                     <i id="password-toggle-icon" class="bi bi-eye"></i>
@@ -39,11 +39,12 @@
 
     <div class="form-group">
         <label for="password_confirmation">Confirm Password:</label>
-        <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" autocomplete="new-password">
+        <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" autocomplete="new-password">
     </div>
 
     <button type="submit"  class="p-3 rounded btn " style="background-color: pink; color:black">Update Profile</button>
 </form>
+
 
 @push('scripts')
 <script>
