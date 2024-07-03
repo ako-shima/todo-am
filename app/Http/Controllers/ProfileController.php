@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -17,8 +18,12 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile.index');
+         // Fetch tasks created by the authenticated user
+        $tasks = Task::where('user_id', Auth::id())->get();
+        return view('profile.index', compact('tasks'));
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -64,7 +69,7 @@ class ProfileController extends Controller
         $user->save();
 
          // Flash a success message to the session
-    return redirect()->route('profile.edit')->with('success', 'Your profile has been successfully updated.');
+    return redirect()->route('profile.index')->with('success', 'Your profile has been successfully updated.');
     }
 
     /**
