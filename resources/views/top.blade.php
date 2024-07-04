@@ -8,6 +8,12 @@
     <title>Top Page</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <style>
+
+* {
+  font-family: "Volkhov", serif;
+  font-weight: 400;
+  font-style: normal;
+}
         .container {
             display: flex;
             height: 100vh;
@@ -50,6 +56,9 @@
 
     </style>
 </head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Marcellus&family=Roboto+Slab:wght@100..900&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <body>
     <div class="container">
         <div class="left-side">
