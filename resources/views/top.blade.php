@@ -53,7 +53,7 @@
 <body>
     <div class="container">
         <div class="left-side">
-            <img class="loginimg" src="{{ asset('images/Project.png') }}" alt="">
+            <img class="loginimg" src="{{ asset('images/Project2.png') }}" alt="">
         </div>
         <div class="right-side">
             {{-- <img class="logo" src="{{ asset{{ 'image/todologo.png' }} }}"> --}}
